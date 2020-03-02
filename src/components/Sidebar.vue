@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <h1>Group Portfolio</h1>
+    <h2>Group Portfolio</h2>
   </div>
 </template>
 
@@ -10,11 +10,13 @@ export default {};
 
 <style scoped lang="scss">
 .sidebar{
+  display: flex;
+  align-items: flex-end;
     background-color: #1D2951;
-    max-width: 400px;
-    height: 100vh;
-    h1{
+    width: 500px;
+    h2{
         color: white;
+        font-size: 40px;
     }
 }
 </style>
