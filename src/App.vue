@@ -42,7 +42,7 @@ img {
   max-width: 100%;
   height: auto;
 }
-.app {
+#app {
   display: flex;
 }
 </style>

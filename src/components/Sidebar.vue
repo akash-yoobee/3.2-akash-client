@@ -11,7 +11,7 @@ export default {};
 <style scoped lang="scss">
 .sidebar{
     background-color: #1D2951;
-    max-width: 400px;
+    width: 500px;
     height: 100vh;
     h1{
         color: white;
