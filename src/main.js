@@ -9,11 +9,17 @@ Vue.use(VueRouter);
 Vue.use(VueResource);
 
 import Home from './components/Home';
+import Projects from './components/Projects';
 
 const routes = [{
   name: "home",
   path: "/",
   component: Home
+},
+{
+  name: "projects",
+  path: "/projects",
+  component: Projects
 }
 ];
 
