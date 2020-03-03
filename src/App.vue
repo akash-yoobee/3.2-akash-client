@@ -78,6 +78,6 @@ img {
     height: 100vh;
 }
 .content{
-  overflow: scroll;
+  overflow-y: scroll;
 }
 </style>

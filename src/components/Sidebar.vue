@@ -9,14 +9,14 @@ export default {};
 </script>
 
 <style scoped lang="scss">
-.sidebar{
+.sidebar {
   display: flex;
   align-items: flex-end;
-    background-color: #1D2951;
-    width: 500px;
-    h2{
-        color: white;
-        font-size: 40px;
-    }
+  background-color: #1d2951;
+  min-width: 350px;
+  h2 {
+    color: white;
+    font-size: 40px;
+  }
 }
 </style>
