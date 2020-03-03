@@ -2,21 +2,16 @@
   <div class="projects">
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
-      <div class="projects__button">Back To Home</div>
+      <div class="projects__button">
+        <Btn text="Back to home" />
+      </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
-        <div class="projects__item">
-          <img src="../assets/images/syscoin.org-18.jpg" />
-        </div>
-        <div class="projects__item">
-          <img src="../assets/images/loomdigital.co.uk-1.jpg" />
-        </div>
-        <div class="projects__item">
-          <img src="../assets/images/territoryprojects.com-1.jpg" />
-        </div>
-        <div class="projects__item">
-          <img src="../assets/images/feroxcorp.com-1.jpg" />
+        <div v-for="project in projects" :key="project.name" class="projects__item">
+          <!-- <img src="../assets/images/loomdigital.co.uk-1.jpg" > -->
+          <img :src="project.image" >
+          <h3>{{project.name}}</h3>
         </div>
       </div>
     </div>
@@ -24,7 +19,36 @@
 </template>
 
 <script>
-export default {};
+import Btn from "./button/Btn";
+
+export default {
+  name: "Projects",
+  components: {
+    Btn
+  },
+  data() {
+    return {
+      projects: [
+        {
+          name: "project 1",  
+          image: "../assets/images/syscoin.jpg"
+        },
+        {
+          name: "project 2",
+          image: "../assets/images/loomdigital.co.uk-1.jpg"
+        },
+        {
+          name: "project 3",
+          image: "../assets/images/territoryprojects.com-1.jpg"
+        },
+        {
+          name: "project 4",
+          image: "../assets/images/feroxcorp.com-1.jpg"
+        }
+      ]
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
@@ -40,13 +64,17 @@ export default {};
   &__item {
     display: flex;
     box-shadow: $global-box-shadow;
+    transition: ease-in-out 0.3s;
+    &:hover {
+      transform: scale(1.02);
+      transition: ease-in-out 0.3s;
+    }
   }
   &__header {
-  }
-  &__button {
-    display: inline-block;
-    padding: 1rem 2rem;
-    border: 1px black solid;
+    padding: 1rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
   }
 }
 </style>

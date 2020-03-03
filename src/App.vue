@@ -71,6 +71,7 @@ ul {
 img {
   max-width: 100%;
   height: auto;
+  border-radius: 5px;
 }
 #app {
   display: flex;
@@ -79,5 +80,7 @@ img {
 }
 .content{
   overflow-y: scroll;
+  background: linear-gradient(90deg, #ffffff, #e4e4e4)
 }
+
 </style>
