@@ -1,20 +1,26 @@
 
 <template>
+
   <div class="project">
     <div class="project__heading">
       <h1 class="project__heading-text">{{ Project }}</h1>
     </div>
     <div class="projects"></div>
   </div>
+
 </template>
 
 <script>
+
 export default {
-  name: "Project"
+  name: "Project",
+  project: ''
 };
+
 </script>
 
 <style scoped lang="scss">
+
 .project {
   padding: 0 6rem;
 
@@ -24,4 +30,5 @@ export default {
     font-weight: bold;
   }
 }
+
 </style>
