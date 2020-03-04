@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <h1>Group Portfolio</h1>
+    <h2>Group<br> Portfolio</h2>
   </div>
 </template>
 
@@ -9,12 +9,17 @@ export default {};
 </script>
 
 <style scoped lang="scss">
-.sidebar{
-    background-color: #1D2951;
-    width: 500px;
-    height: 100vh;
-    h1{
-        color: white;
-    }
+.sidebar {
+  display: flex;
+  align-items: flex-end;
+  background: linear-gradient(45deg, #060E14, #1E2D3A);
+  min-width: 350px;
+  h2 {
+    padding-left: 1em;
+    padding-bottom: 1em;
+    color: white;
+    font-size: 40px;
+  }
 }
 </style>
+
