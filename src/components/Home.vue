@@ -1,5 +1,6 @@
 <template>
   <div class="home-background">
+    <p>Testing</p>
     <div @click="studentName = anton" :selectedStudentName="studentName" class="anton-card">anton</div>
     <div @click="studentName = chris" :selectedStudentName="studentName" class="chris-card">chris</div>
     <div @click="studentName = akash" :selectedStudentName="studentName" class="akash-card">akash</div>
