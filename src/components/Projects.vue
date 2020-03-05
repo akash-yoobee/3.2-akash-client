@@ -3,13 +3,13 @@
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
       <div class="projects__button">
-        <Btn text="back to home" href="" />
+        <Btn text="back to home" href />
       </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
         <div v-for="project in projects" :key="project.name" class="projects__item">
-          <img :src=project.image >
+          <img :src="project.image" />
         </div>
       </div>
     </div>
