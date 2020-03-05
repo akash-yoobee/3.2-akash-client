@@ -3,15 +3,14 @@
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
       <div class="projects__button">
-        <Btn text="Back to home" />
+        <Btn text="back to home" href="" />
       </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
         <div v-for="project in projects" :key="project.name" class="projects__item">
-          <!-- <img src="../assets/images/loomdigital.co.uk-1.jpg" > -->
-          <img :src="project.image" >
-          <h3>{{project.name}}</h3>
+          <!-- <img src="../assets/images/syscoin.jpg" > -->
+          <img :src=project.image >
         </div>
       </div>
     </div>
@@ -31,19 +30,19 @@ export default {
       projects: [
         {
           name: "project 1",  
-          image: "../assets/images/syscoin.jpg"
+          image: "https://i.ibb.co/BZR193C/syscoin.jpg"
         },
         {
           name: "project 2",
-          image: "../assets/images/loomdigital.co.uk-1.jpg"
+          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg"
         },
         {
           name: "project 3",
-          image: "../assets/images/territoryprojects.com-1.jpg"
+          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg"
         },
         {
           name: "project 4",
-          image: "../assets/images/feroxcorp.com-1.jpg"
+          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg"
         }
       ]
     };
