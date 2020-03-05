@@ -1,8 +1,20 @@
 <template>
   <div class="home-background">
-    <div @click="studentName = anton" :selectedStudentName="studentName" class="anton-card">anton</div>
-    <div @click="studentName = chris" :selectedStudentName="studentName" class="chris-card">chris</div>
-    <div @click="studentName = akash" :selectedStudentName="studentName" class="akash-card">akash</div>
+    <div
+      @click="studentName = anton"
+      :selectedStudentName="studentName"
+      class="card anton-card"
+    >anton</div>
+    <div
+      @click="studentName = chris"
+      :selectedStudentName="studentName"
+      class="card chris-card"
+    >chris</div>
+    <div
+      @click="studentName = akash"
+      :selectedStudentName="studentName"
+      class="card akash-card"
+    >akash</div>
   </div>
 </template>
 <script>
@@ -20,9 +32,8 @@ export default {
 // }
 </script>
 <style scoped lang="scss">
-@import url("https://fonts.googleapis.com/css?family=Poppins|Raleway&display=swap");
 // font-family: 'Raleway', sans-serif;
-// font-family: 'Poppins', sans-serif;
+@import "../assets/scss/_variables";
 
 .home-background {
   display: flex;
@@ -32,37 +43,36 @@ export default {
   background-color: #f7f7f9;
   // For browsers that do support gradients
   background-image: linear-gradient(to bottom right, #f7f7f9, #e5e4e5);
-  width: 100vw;
+  width: auto;
   height: 100vh;
   font-family: "Poppins", sans-serif;
   font-size: 3vw;
   text-align: center;
-  .anton-card {
-    background-image: url("../assets/images/anton-background.jpg");
+
+  .card {
     background-size: cover;
     background-repeat: no-repeat;
+    border-radius: 10px;
     color: white;
     text-transform: uppercase;
-    height: 71vh;
+    height: 69vh;
     width: 17vw;
+    box-shadow: $global-box-shadow;
+  }
+  .anton-card {
+    background-image: url("../assets/images/anton-background.jpg");
+    background-position: right top;
+    margin: 0vh 4vw 0vh 8vw;
+    box-shadow: $global-box-shadow;
   }
   .chris-card {
     background-image: url("../assets/images/chris-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    text-transform: uppercase;
-    height: 71vh;
-    width: 17vw;
+    margin: 0vh 3vw 0vh 3vw;
   }
   .akash-card {
     background-image: url("../assets/images/akash-background.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
-    color: white;
-    text-transform: uppercase;
-    height: 71vh;
-    width: 17vw;
+    background-position: right top;
+    margin: 0vh 8vw 0vh 4vw;
   }
   // .maybe-useful {
   //   background-image: url("photographer.jpg"); /* The image used */
