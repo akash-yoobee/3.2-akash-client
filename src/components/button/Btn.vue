@@ -13,7 +13,7 @@ export default {
 <style lang="scss">
 
 .button {
-  padding: 0.6rem 2rem;
+  padding: 0.4rem 1.5rem;
   border: 2px black solid;
   border-radius: 5px;
   text-transform: uppercase;
