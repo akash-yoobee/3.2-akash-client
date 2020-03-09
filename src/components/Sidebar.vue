@@ -17,7 +17,7 @@ export default {
   },
   data() {
     return {
-      currentPage: "home",
+      currentPage: "projects",
       chris: {
         name: 'Chris',
         image: '',
