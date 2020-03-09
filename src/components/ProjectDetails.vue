@@ -1,4 +1,3 @@
-
 <template>
   <div class="project">
     <div class="project__heading">
@@ -31,6 +30,7 @@ export default {
   },
   data() {
     return {
+      props: ['projectDetails'],
       project: {
         name: "Black Estate",
         slogan: "A fantastic place to drink wine",
