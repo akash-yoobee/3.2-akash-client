@@ -4,7 +4,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import Home from './components/Home'
 import Projects from './components/Projects'
-import ProjectDetail from './components/ProjectDetail'
+import ProjectDetails from './components/ProjectDetails'
 
 Vue.config.productionTip = false
 
@@ -24,7 +24,7 @@ const routes = [{
 {
   name: 'projectdetails',
   path: '/projectdetails',
-  component: ProjectDetail
+  component: ProjectDetails
 }
 ]
 

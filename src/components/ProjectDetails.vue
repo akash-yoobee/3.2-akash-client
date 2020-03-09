@@ -12,8 +12,8 @@
 
 <script>
 
-import Btn from "./button/Btn"
-import Projects from "./Projects"
+// import Btn from "./button/Btn"
+// import Projects from "./Projects"
 
 // export default {
 //   name: "Project",

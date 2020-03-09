@@ -3,14 +3,13 @@
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
       <div class="projects__button">
-        <Btn text="back to home" href="" />
+        <Btn text="back to home" href />
       </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
         <div v-for="project in projects" :key="project.name" class="projects__item">
-          <!-- <img src="../assets/images/syscoin.jpg" > -->
-          <img :src=project.image >
+          <img :src="project.image" />
         </div>
       </div>
     </div>
@@ -30,19 +29,23 @@ export default {
       projects: [
         {
           name: "project 1",  
-          image: "https://i.ibb.co/BZR193C/syscoin.jpg"
+          image: "https://i.ibb.co/BZR193C/syscoin.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 2",
-          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg"
+          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 3",
-          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg"
+          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 4",
-          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg"
+          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg",
+          path: "/projectDetails"
         }
       ]
     };
