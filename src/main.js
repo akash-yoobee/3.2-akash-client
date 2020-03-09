@@ -10,6 +10,7 @@ Vue.use(VueResource);
 
 import Home from './components/Home';
 import Projects from './components/Projects';
+import Pagespeed from './components/Pagespeed';
 
 const routes = [{
   name: "home",
@@ -20,6 +21,11 @@ const routes = [{
   name: "projects",
   path: "/projects",
   component: Projects
+},
+{
+  name: "pagespeed",
+  path: "/pagespeed",
+  component: Pagespeed
 }
 ];
 
