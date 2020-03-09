@@ -9,7 +9,6 @@
     <div class="projects__list-wrapper">
       <div class="projects__grid">
         <div v-for="project in projects" :key="project.name" class="projects__item">
-          <!-- <img src="../assets/images/syscoin.jpg" > -->
           <img :src="project.image" />
         </div>
       </div>
@@ -29,20 +28,24 @@ export default {
     return {
       projects: [
         {
-          name: "project 1",
-          image: "https://i.ibb.co/BZR193C/syscoin.jpg"
+          name: "project 1",  
+          image: "https://i.ibb.co/BZR193C/syscoin.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 2",
-          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg"
+          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 3",
-          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg"
+          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg",
+          path: "/projectDetails"
         },
         {
           name: "project 4",
-          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg"
+          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg",
+          path: "/projectDetails"
         }
       ]
     };

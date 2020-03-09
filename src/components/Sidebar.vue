@@ -1,25 +1,37 @@
 <template>
   <div class="sidebar">
-    <h2>Group<br> Portfolio</h2>
+      <SidebarHome v-if="currentPage === 'home'" />
+      <SidebarProfile v-if="currentPage === 'projects'" />
+
   </div>
 </template>
 
 <script>
-export default {};
+import SidebarHome from './sidebars/SidebarHome'
+import SidebarProfile from './sidebars/SidebarProfile'
+
+export default {
+  components:{
+    SidebarHome,
+    SidebarProfile
+  },
+  data() {
+    return {
+      currentPage: "home",
+      chris: {
+        name: 'Chris',
+        image: '',
+
+      }
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
 .sidebar {
-  display: flex;
-  align-items: flex-end;
-  background: linear-gradient(45deg, #060E14, #1E2D3A);
+  background: linear-gradient(45deg, #060e14, #1e2d3a);
   min-width: 350px;
-  h2 {
-    padding-left: 1em;
-    padding-bottom: 1em;
-    color: white;
-    font-size: 40px;
-  }
 }
 </style>
 
