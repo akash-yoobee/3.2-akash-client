@@ -8,9 +8,9 @@
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
-        <div v-for="project in projects" :key="project.name" class="projects__item">
+        <router-link :to="{name: 'projectdetails'}" v-for="project in projects" :key="project.name" class="projects__item">
           <img :src="project.image" />
-        </div>
+        </router-link>
       </div>
     </div>
   </div>
@@ -18,11 +18,14 @@
 
 <script>
 import Btn from "./button/Btn";
-
+import { EventBus } from "../main"
 export default {
   name: "Projects",
   components: {
     Btn
+  },
+  created () {
+    EventBus.$emit('changePage', 'profile')
   },
   data() {
     return {

@@ -21,12 +21,15 @@
 
 <script>
 import Btn from "./button/Btn";
-// import Projects from "./Projects"
+import { EventBus } from "../main"
 
 export default {
   name: "ProjectDetails",
   components: {
     Btn
+  },
+  created () {
+    EventBus.$emit('changePage', 'list')
   },
   data() {
     return {

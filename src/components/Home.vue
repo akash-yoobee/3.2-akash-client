@@ -1,14 +1,14 @@
 <template>
   <div class="home">
     <router-link :to="{name: 'projects'}">
-      <div v-on:click="changePage()" class="home__card home__card--anton">
+      <div class="home__card home__card--anton">
         <p class="home__label">anton</p>
       </div>
     </router-link>
-    <div v-on:click="changePage()" class="home__card home__card--chris">
+    <div class="home__card home__card--chris">
       <p class="home__label">chris</p>
     </div>
-    <div v-on:click="changePage()" class="home__card home__card--akash">
+    <div class="home__card home__card--akash">
       <p class="home__label">akash</p>
     </div>
   </div>
@@ -17,13 +17,10 @@
 import { EventBus } from "../main"
 export default {
   name: "Home",
-  methods:{
-    changePage: function () {
-      EventBus.$emit('changePage', 'profile')
-      console.log("Clicked");
-    }
+  created () {
+    EventBus.$emit('changePage', 'home')
   },
-  data() {
+data() {
     return {};
   }
 };
