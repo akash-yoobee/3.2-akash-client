@@ -3,10 +3,11 @@
     <div class="pagespeed__header">
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
-        <p class="pagespeed__subheading">Page Speed Insights Results</p>
+        <span class="pagespeed__subheading">Page Speed Insights Results</span>
+        <SearchBar @webPageEntered="findPagespeed"></SearchBar>
       </div>
       <div class="pagespeed__buttons">
-        <Btn text="view details" href />
+        <Btn text="view details" v-on:keyup.13="findPagespeed" href />
         <Btn text="visit website" href />
       </div>
     </div>
@@ -21,11 +22,16 @@
 
 <script>
 import Btn from "./button/Btn";
+import SearchBar from './SearchBar';
+import axios from 'axios';
+// Pagespeed akash.yoobee
+// const API_KEY = 'AIzaSyBNzFKwrGRyG0AUOtWkaWKDhRnPqKMbHI0';
 
 export default {
   name: "Pagespeed",
   components: {
-    Btn
+    Btn,
+    SearchBar
   },
   data() {
     return {
@@ -38,8 +44,62 @@ export default {
           name: "metric 2",
           image: "https://i.ibb.co/x3fNkhm/image.png"
         }
-      ]
+      ],
+      pageStats: []
     };
+  },
+  methods: {
+    findPagespeed(searchTerm) {
+      axios.get('https://www.googleapis.com/pagespeedonline/v5/runPagespeed', {
+        params: {
+        url: encodeURIComponent(searchTerm)
+        }
+      }).then(response => {
+        this.pageStats = response.data;
+        console.log(this.pageStats);
+      });
+    }
+  //   findPagespeedold(searchTerm) {
+  //   const url = setUpQuery(searchTerm);
+  //   fetch(url)
+  //     .then(response => response.json())
+  //     .then(json => {
+  //       const lighthouse = json.lighthouseResult;
+  //       const lighthouseMetrics = {
+  //         'Page tested': json.id,
+  //         'Main Score': lighthouse.categories['performance'].score,
+  //         'First Contentful Paint': lighthouse.audits['first-contentful-paint'].displayValue,
+  //         'Speed Index': lighthouse.audits['speed-index'].displayValue,
+  //         'Time To Interactive': lighthouse.audits['interactive'].displayValue,
+  //         'First Meaningful Paint': lighthouse.audits['first-meaningful-paint'].displayValue,
+  //         'First CPU Idle': lighthouse.audits['first-cpu-idle'].displayValue,
+  //         'Estimated Input Latency': lighthouse.audits['estimated-input-latency'].displayValue
+  //       };
+  //       showLighthouseContent(lighthouseMetrics);
+  //       console.log(this.json);
+  //     });
+  //   },
+  //   setUpQuery(searchTerm) {
+  //   const api = 'https://www.googleapis.com/pagespeedonline/v5/runPagespeed';
+  //   const parameters = {
+  //     url: encodeURIComponent(searchTerm)
+  //   };
+  //   let query = `${api}?`;
+  //   for (key in parameters) {
+  //     query += `${key}=${parameters[key]}`;
+  //   }
+  //   return query;
+  // },
+  // showLighthouseContent(lighthouseMetrics) {
+  //   const lighthouseHeader = document.createElement('h2');
+  //   lighthouseHeader.textContent = "Pagespeed Results";
+  //   document.body.appendChild(lighthouseHeader);
+  //   for (key in lighthouseMetrics) {
+  //     const p = document.createElement('p');
+  //     p.textContent = `${key}: ${lighthouseMetrics[key]}`;
+  //     document.body.appendChild(p);
+  //   }
+  // }
   }
 };
 </script>
