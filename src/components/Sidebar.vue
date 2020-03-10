@@ -1,22 +1,47 @@
 <template>
   <div class="sidebar">
-    <h2>Group Portfolio</h2>
+    <component :is="sidebar"></component>
   </div>
 </template>
 
 <script>
-export default {};
+import SidebarHome from "./sidebars/SidebarHome";
+import SidebarProfile from "./sidebars/SidebarProfile";
+import { EventBus } from "../main"
+
+export default {
+  components: {
+    'home':SidebarHome,
+    'profile':SidebarProfile
+  },
+
+  created() {
+    console.log(this.sidebar)
+    EventBus.$on('changePage', (data) => {
+      this.sidebar = data
+      console.log(this.sidebar)
+    })
+  },
+
+  data() {
+    return {
+      currentPage: "home",
+      chris: {
+        name: "Chris",
+        image: ""
+      },
+      sidebar: "home"
+    };
+  }
+};
 </script>
 
 <style scoped lang="scss">
-.sidebar{
-  display: flex;
-  align-items: flex-end;
-    background-color: #1D2951;
-    width: 500px;
-    h2{
-        color: white;
-        font-size: 40px;
-    }
+.sidebar {
+  background: linear-gradient(45deg, #060e14, #1e2d3a);
+  min-width: 400px;
+  width: 400px;
+
 }
 </style>
+
