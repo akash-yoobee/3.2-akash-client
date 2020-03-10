@@ -35,7 +35,7 @@ export default {
         name: "Black Estate",
         slogan: "A fantastic place to drink wine",
         body:
-          "Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Did I mention that I like golf?",
+          "Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Did I mention that I like golf? I hope I made Tiger Woods proud. Did I mention that I like golf?",
         image:
           "https://s3-us-west-1.amazonaws.com/nerby-test/wp-content/uploads/2015/04/15170403/Nike-42.jpg",
         imageMobile:
@@ -54,29 +54,39 @@ export default {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    margin-top: 2rem;
   }
 
   &__button {
     display: grid;
-    grid-template-columns: 1;
+    grid-template-columns: 50% 50%;
     grid-gap: 2rem;
+    justify-items: center;
   }
 
   &__heading-text {
     font-family: "Poppins", sans-serif;
     font-size: 80px;
     font-weight: bold;
+    color: #222222;
   }
 
   &__heading-sub {
-    padding: 0.5rem 0;
+    padding: 0.5rem 0 1.5rem;
     font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    font-size: 25px;
     text-transform: none;
+    color: #222222;
   }
 
   &__body {
     padding: 0.5rem 0;
     font-family: "Raleway", sans-serif;
+    font-size: 16px;
+    font-weight: 300;
+    line-height: 2rem;
+    color: #2B2B2B
   }
 
   &__grid {

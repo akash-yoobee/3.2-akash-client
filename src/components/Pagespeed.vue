@@ -1,17 +1,20 @@
 <template>
-  <div class="projects">
-    <div class="projects__header">
-      <h1 class="projects__heading">Projects</h1>
-      <div class="projects__button">
+  <div class="pagespeed">
+    <div class="pagespeed__header">
+      <div>
+        <h1 class="pagespeed__heading">Loom</h1>
+        <p class="pagespeed__subheading">Page Speed Insights Results</p>
+      </div>
+      <div class="pagespeed__buttons">
+        <Btn text="view details" href />
         <Btn text="visit website" href />
       </div>
     </div>
-    <div class="projects__list-wrapper">
-      <div class="projects__grid">
-        <div v-for="project in projects" :key="project.name" class="projects__item">
-          <img :src="project.image" />
+
+    <div class="pagespeed__metrics">
+        <div v-for="data in metrics" :key="data.name">
+          <img :src="data.image" />
         </div>
-      </div>
     </div>
   </div>
 </template>
@@ -26,22 +29,14 @@ export default {
   },
   data() {
     return {
-      projects: [
+      metrics: [
         {
-          name: "project 1",
-          image: "https://i.ibb.co/BZR193C/syscoin.jpg"
+          name: "metric 1",
+          image: "https://i.ibb.co/WvmLyJY/image.png"
         },
         {
-          name: "project 2",
-          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg"
-        },
-        {
-          name: "project 3",
-          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg"
-        },
-        {
-          name: "project 4",
-          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg"
+          name: "metric 2",
+          image: "https://i.ibb.co/x3fNkhm/image.png"
         }
       ]
     };
@@ -52,27 +47,47 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/_variables";
 
-.projects {
+.pagespeed {
+  background: $global-background;
   padding: 2rem 6rem 4rem;
-  &__grid {
+  height: 100vh;
+  width: 80vw;
+  &__header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 2rem 0rem 2rem 0rem;
+  }
+  &__buttons {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    grid-gap: 4rem;
+    grid-gap: 1.5rem;
+    padding: 2rem 0rem 0rem 35rem;
   }
-  &__item {
+  &__heading {
+    text-transform: uppercase;
+    font-size: 4vw;
+    font-weight: 600;
+    font-family: "Poppins", sans-serif;
+  }
+  &__subheading {
+    text-transform: capitalize;
+    font-size: 1.5vw;
+    font-weight: 400;
+    font-family: "Raleway", sans-serif;
+  }
+  &__metrics {
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background: white;
+    padding: 1rem 0rem 0rem 0rem;
     box-shadow: $global-box-shadow;
     transition: ease-in-out 0.3s;
     &:hover {
       transform: scale(1.02);
       transition: ease-in-out 0.3s;
     }
-  }
-  &__header {
-    padding: 1rem 0;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
   }
 }
 </style>
