@@ -27,10 +27,7 @@ export default {
     return {};
   }
 };
-// In the child component/Vue file Anton needs to expect my prop by including inside his export default {}
-//   props: {
-//   selectedStudentName: String
-// }
+
 </script>
 <style scoped lang="scss">
 @import "../assets/scss/_variables";
