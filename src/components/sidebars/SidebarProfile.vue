@@ -10,12 +10,17 @@
       <div class="profile__image-container">
         <img src="https://i.ibb.co/r0HhLrw/profile-pic-2.png" alt />
       </div>
-      <p
-        class="profile__text"
-      >Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae natus accusamus minima neque quo exercitationem, pariatur voluptatem impedit in iste distinctio! Aliquid assumenda temporibus nostrum earum nesciunt incidunt harum esse praesentium, inventore iure error odit corporis beatae eaque voluptatum vitae corrupti! Iste, doloremque odit? Ad aliquam pariatur perspiciatis obcaecati quaerat.</p>
+      <p class="profile__text">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestiae
+        natus accusamus minima neque quo exercitationem, pariatur voluptatem
+        impedit in iste distinctio! Aliquid assumenda temporibus nostrum earum
+        nesciunt incidunt harum esse praesentium, inventore iure error odit
+        corporis beatae eaque voluptatum vitae corrupti! Iste, doloremque odit?
+        Ad aliquam pariatur perspiciatis obcaecati quaerat.
+      </p>
     </div>
     <div class="profile__footer">
-      <Btn text="Contact" href />
+      <Btn text="Contact" modifier="light" />
       <!-- <div class="profile__footer-icon"><font-awesome-icon class="profile__icon-footer" :icon="['fab', 'facebook-square']" /></div>
       <div class="profile__footer-icon"><font-awesome-icon class="profile__icon-footer" :icon="['fab', 'facebook-square']" /></div> -->
     </div>
@@ -35,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .profile {
   color: white;
-  padding: 2rem;
+  padding: 3rem;
   height: 100%;
   display: flex;
   flex-direction: column;
@@ -71,10 +76,10 @@ export default {
     margin-right: 1rem;
     font-size: 35px;
   }
-  &__footer{
+  &__footer {
     display: flex;
     align-items: center;
-    justify-content: space-between
+    justify-content: space-between;
   }
   &__icon-footer {
     font-size: 35px;

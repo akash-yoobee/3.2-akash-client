@@ -1,12 +1,13 @@
 <template>
   <div>
-    <a :href="href" class="button">{{text}}</a>
+    <a class="button" :class="[('button' + '--' + modifier)]">{{text}}</a>
   </div>
 </template>
 
 <script>
+
 export default {
-  props: ["text"]
+  props: ["text", "modifier"]
 };
 </script>
 
@@ -24,6 +25,20 @@ export default {
 
   &:hover{
       background-color: #00000014;
+  }
+  &--light{
+    border: 2px white solid;
+    color: white;
+    &:hover{
+      background-color: #ffffff0f;
+    }
+  }
+  &--inverse{
+    background-color: black;
+    color: white;
+    &:hover{
+      background-color: #000000b0;
+    }
   }
 }
 </style>

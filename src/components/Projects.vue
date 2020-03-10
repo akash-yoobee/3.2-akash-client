@@ -3,7 +3,7 @@
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
       <div class="projects__button">
-        <Btn text="back to home" href />
+        <Btn text="back to home"/>
       </div>
     </div>
     <div class="projects__list-wrapper">

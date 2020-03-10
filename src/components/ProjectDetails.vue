@@ -3,8 +3,8 @@
     <div class="project__heading">
       <h1 class="project__heading-text">{{ project.name }}</h1>
       <div class="project__button">
-        <Btn text="Visit Website" href />
-        <Btn text="View Pagespeed" href />
+        <Btn text="Visit Website" />
+        <Btn text="View Pagespeed" />
       </div>
     </div>
     <h2 class="project__heading-sub">"{{ project.slogan }}"</h2>
