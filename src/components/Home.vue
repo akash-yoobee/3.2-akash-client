@@ -5,12 +5,16 @@
         <p class="home__label">anton</p>
       </div>
     </router-link>
+        <router-link :to="{name: 'projects'}">
     <div class="home__card home__card--chris">
       <p class="home__label">chris</p>
     </div>
+    </router-link>
+        <router-link :to="{name: 'projects'}">
     <div class="home__card home__card--akash">
       <p class="home__label">akash</p>
     </div>
+    </router-link>
   </div>
 </template>
 <script>
