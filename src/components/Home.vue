@@ -1,29 +1,38 @@
 <template>
   <div class="home">
     <router-link :to="{name: 'projects'}">
-      <div v-on:click="changePage()" class="home__card home__card--anton">
+      <div class="home__card home__card--anton">
         <p class="home__label">anton</p>
       </div>
     </router-link>
-    <div v-on:click="changePage()" class="home__card home__card--chris">
+        <router-link :to="{name: 'projects'}">
+    <div class="home__card home__card--chris">
       <p class="home__label">chris</p>
     </div>
-    <div v-on:click="changePage()" class="home__card home__card--akash">
+    </router-link>
+        <router-link :to="{name: 'projects'}">
+    <div class="home__card home__card--akash">
       <p class="home__label">akash</p>
     </div>
+    </router-link>
   </div>
 </template>
 <script>
 import { EventBus } from "../main";
 export default {
   name: "Home",
+<<<<<<< HEAD
   methods: {
     changePage: function() {
       EventBus.$emit("changePage", "profile");
       console.log("Clicked");
     }
+=======
+  created () {
+    EventBus.$emit('changePage', 'home')
+>>>>>>> fb7d0c6ebca4c9c77f0ba3b52b2307a86dda04b0
   },
-  data() {
+data() {
     return {};
   }
 };
