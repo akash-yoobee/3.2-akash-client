@@ -18,9 +18,9 @@ export default {
 <style scoped>
   input {
     width: 100%;
+    border-radius: 2px;
   }
   div {
-    /* text-align: center; */
     margin: 20px;
   }
 </style>

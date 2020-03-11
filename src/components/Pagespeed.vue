@@ -7,14 +7,32 @@
         <SearchBar @webPageEntered="findPagespeed"></SearchBar>
       </div>
       <div class="pagespeed__buttons">
-        <Btn text="view details" v-on:keyup.13="findPagespeed" href />
-        <Btn text="visit website" href />
+        <Btn class="pagespeed__viewdetails" text="view details" v-on:keyup.13="findPagespeed" modifier="inverse" href />
+        <Btn class="pagespeed__visitwebsite" text="visit website" href />
       </div>
     </div>
 
     <div class="pagespeed__metrics">
-      <div v-for="data in metrics" :key="data.name">
-        <img :src="data.image" />
+      <div class="pagespeed__content">
+        <div>{{ pageStats.score }}</div>
+        <div>SCORE</div>
+        <div>Lorem ipsum</div>
+      </div>
+      <div class="pagespeed__content">
+        <div>{{ pageStats.contentful }}</div>
+        <div>First Contentful Paint</div>
+        <div>{{ pageStats.index }}</div>
+        <div>Speed Index</div>
+        <div>{{ pageStats.interactive }}</div>
+        <div>Time To Interactive</div>
+      </div>
+      <div class="pagespeed__content">
+        <div>{{ pageStats.meaningful }}</div>
+        <div>First Meaningful Paint</div>
+        <div>{{ pageStats.cpuidle }}</div>
+        <div>First CPU Idle</div>
+        <div>{{ pageStats.latency }}</div>
+        <div>Estimated Input Latency</div>
       </div>
     </div>
   </div>
@@ -23,7 +41,6 @@
 <script>
 import Btn from "./button/Btn";
 import SearchBar from "./SearchBar";
-// import axios from 'axios';
 
 export default {
   name: "Pagespeed",
@@ -33,16 +50,6 @@ export default {
   },
   data() {
     return {
-      metrics: [
-        {
-          name: "metric 1",
-          image: "https://i.ibb.co/WvmLyJY/image.png"
-        },
-        {
-          name: "metric 2",
-          image: "https://i.ibb.co/x3fNkhm/image.png"
-        }
-      ],
       pageStats: []
     };
   },
@@ -56,25 +63,23 @@ export default {
           let rawScore = json.lighthouseResult.categories["performance"].score;
           let mainScore = rawScore * 100;
           this.pageStats = {
-            "Page tested": json.id,
-            "Main Score": mainScore,
-            "First Contentful Paint":
+            score: mainScore,
+            contentful:
               json.lighthouseResult.audits["first-contentful-paint"]
                 .displayValue,
-            "Speed Index":
+            index:
               json.lighthouseResult.audits["speed-index"].displayValue,
-            "Time To Interactive":
+            interactive:
               json.lighthouseResult.audits["interactive"].displayValue,
-            "First Meaningful Paint":
+            meaningful:
               json.lighthouseResult.audits["first-meaningful-paint"]
                 .displayValue,
-            "First CPU Idle":
+            cpuidle:
               json.lighthouseResult.audits["first-cpu-idle"].displayValue,
-            "Estimated Input Latency":
+            latency:
               json.lighthouseResult.audits["estimated-input-latency"]
                 .displayValue
           };
-          console.log(this.pageStats);
         });
     }
   }
@@ -96,10 +101,16 @@ export default {
     padding: 2rem 0rem 2rem 0rem;
   }
   &__buttons {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 1.5rem;
-    padding: 2rem 0rem 0rem 35rem;
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    margin: 2.5rem 0rem 0rem 5rem;
+  }
+  &__viewdetails{
+    margin: 0rem 1rem 0rem 0rem;
+  }
+  &__visitwebsite{
+    margin: 0rem 0rem 0rem 1rem;
   }
   &__heading {
     text-transform: uppercase;
@@ -110,13 +121,14 @@ export default {
   &__subheading {
     text-transform: capitalize;
     font-size: 1.5vw;
-    font-weight: 400;
+    font-weight: 500;
     font-family: "Raleway", sans-serif;
   }
   &__metrics {
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    align-content: space-between;
     background: white;
     padding: 1rem 0rem 0rem 0rem;
     box-shadow: $global-box-shadow;
@@ -125,6 +137,13 @@ export default {
       transform: scale(1.02);
       transition: ease-in-out 0.3s;
     }
+  }
+  &__content{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-content: space-between;
+    background: white;
   }
 }
 </style>
