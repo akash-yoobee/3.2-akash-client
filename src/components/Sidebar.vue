@@ -7,12 +7,14 @@
 <script>
 import SidebarHome from "./sidebars/SidebarHome";
 import SidebarProfile from "./sidebars/SidebarProfile";
+import SidebarList from "./sidebars/SidebarList";
 import { EventBus } from "../main"
 
 export default {
   components: {
     'home':SidebarHome,
-    'profile':SidebarProfile
+    'profile':SidebarProfile,
+    'List':SidebarList,
   },
 
   created() {
