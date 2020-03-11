@@ -3,11 +3,11 @@
     <div class="project__heading">
       <h1 class="project__heading-text">{{ project.name }}</h1>
       <div class="project__button">
-        <Btn text="Visit Website" />
+        <Btn text="Visit Website" modifier="inverse" />
         <Btn text="View Pagespeed" />
       </div>
     </div>
-    <h2 class="project__heading-sub">"{{ project.slogan }}"</h2>
+    <h2 class="project__heading-sub">{{ project.slogan }}</h2>
     <div class="project__body">
       <p>{{ project.body }}</p>
     </div>
@@ -36,7 +36,7 @@ export default {
       props: ['projectDetails'],
       project: {
         name: "Black Estate",
-        slogan: "A fantastic place to drink wine",
+        slogan: "\"A fantastic place to drink wine\"",
         body:
           "Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Did I mention that I like golf? I hope I made Tiger Woods proud. Did I mention that I like golf?",
         image:
@@ -75,8 +75,8 @@ export default {
   }
 
   &__heading-sub {
-    padding: 0.5rem 0 1.5rem;
-    font-family: "Raleway", sans-serif;
+    padding: 0.8rem 0 0.7rem 0;
+    font-family: "Raleway", sans-serif !important;
     font-weight: 400;
     font-size: 25px;
     text-transform: none;
