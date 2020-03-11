@@ -5,15 +5,15 @@
         <p class="home__label">anton</p>
       </div>
     </router-link>
-        <router-link :to="{name: 'projects'}">
-    <div class="home__card home__card--chris">
-      <p class="home__label">chris</p>
-    </div>
+    <router-link :to="{name: 'projects'}">
+      <div class="home__card home__card--chris">
+        <p class="home__label">chris</p>
+      </div>
     </router-link>
-        <router-link :to="{name: 'projects'}">
-    <div class="home__card home__card--akash">
-      <p class="home__label">akash</p>
-    </div>
+    <router-link :to="{name: 'projects'}">
+      <div class="home__card home__card--akash">
+        <p class="home__label">akash</p>
+      </div>
     </router-link>
   </div>
 </template>
@@ -21,18 +21,10 @@
 import { EventBus } from "../main";
 export default {
   name: "Home",
-<<<<<<< HEAD
-  methods: {
-    changePage: function() {
-      EventBus.$emit("changePage", "profile");
-      console.log("Clicked");
-    }
-=======
-  created () {
-    EventBus.$emit('changePage', 'home')
->>>>>>> fb7d0c6ebca4c9c77f0ba3b52b2307a86dda04b0
+  created() {
+    EventBus.$emit("changePage", "home");
   },
-data() {
+  data() {
     return {};
   }
 };
