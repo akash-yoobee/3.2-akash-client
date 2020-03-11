@@ -1,13 +1,11 @@
 <template>
-  <div>
-    <a class="button" :class="[('button' + '--' + modifier)]">{{text}}</a>
-  </div>
+    <router-link :to="{name: link}" class="button" :class="[('button' + '--' + modifier)]">{{text}}</router-link>
 </template>
 
 <script>
 
 export default {
-  props: ["text", "modifier"]
+  props: ["text", "modifier", "link"]
 };
 </script>
 
@@ -21,6 +19,8 @@ export default {
   font-family: "Poppins";
   font-weight: 600;
   letter-spacing: 1px;
+  color: black;
+  text-decoration: none;
   cursor: pointer;
 
   &:hover{

@@ -62,7 +62,10 @@ h1 {
   font-size: 80px;
   font-weight: 600;
 }
-
+a{
+  color: white;
+  text-decoration: none;
+}
 p,
 li {
   font-family: "Raleway";

@@ -1,12 +1,10 @@
 <template>
   <div class="profile">
     <div class="profile__content">
-      <div class="profile__head">
-        <h5 class="profile__heading">GROUP PORTFOLIO</h5>
-        <div class="profile__name">
-          <font-awesome-icon class="profile__icon" icon="angle-left" />
-          <h3>CHRIS</h3>
-        </div>
+      <router-link :to="{name: 'home'}"><h5 class="profile__heading">Group Portfolio</h5></router-link>
+      <div class="profile__name">
+        <BackArrow link="projects"/>
+        <h3>Chris</h3>
       </div>
       <h6 class="profile__sub-heading">PROJECTS LIST</h6>
             <router-link :to="{name: 'projectdetails'}" v-for="project in projects" :key="project.image">
