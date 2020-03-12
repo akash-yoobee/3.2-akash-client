@@ -4,10 +4,15 @@
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
-        <SearchBar @webPageEntered="findPagespeed"></SearchBar>
       </div>
       <div class="pagespeed__buttons">
-        <Btn class="pagespeed__viewdetails" text="view details" v-on:keyup.13="findPagespeed" modifier="inverse" href />
+        <Btn
+          class="pagespeed__viewdetails"
+          text="view details"
+          v-on:keyup.13="findPagespeed"
+          modifier="inverse"
+          href
+        />
         <Btn class="pagespeed__visitwebsite" text="visit website" href />
       </div>
     </div>
@@ -16,8 +21,13 @@
       <div class="pagespeed__content">
         <div class="pagespeed__maindata">{{ pageStats.score }}</div>
         <div class="pagespeed__mainscore">score</div>
-        <div class="pagespeed__maindescription">Derived from the <strong>Chrome User Experience Report</strong> (CrUX).<br><br>
-        The CrUX is <strong>powered by real user measurement</strong> of key user experience metrics across the public web, aggregated from users who have opted-in to syncing their browsing history, and have usage statistic reporting enabled. </div>
+        <div class="pagespeed__maindescription">
+          Derived from the
+          <strong>Chrome User Experience Report</strong> (CrUX).
+          <br />
+          <br />The CrUX is
+          <strong>powered by real user measurement</strong> of key user experience metrics across the public web, aggregated from users who have opted-in to syncing their browsing history, and have usage statistic reporting enabled.
+        </div>
       </div>
       <div class="pagespeed__content">
         <div class="pagespeed__fielddata">{{ pageStats.contentful }}</div>
@@ -41,13 +51,11 @@
 
 <script>
 import Btn from "./button/Btn";
-import SearchBar from "./SearchBar";
 
 export default {
   name: "Pagespeed",
   components: {
-    Btn,
-    SearchBar
+    Btn
   },
   data() {
     return {
@@ -68,8 +76,7 @@ export default {
             contentful:
               json.lighthouseResult.audits["first-contentful-paint"]
                 .displayValue,
-            index:
-              json.lighthouseResult.audits["speed-index"].displayValue,
+            index: json.lighthouseResult.audits["speed-index"].displayValue,
             interactive:
               json.lighthouseResult.audits["interactive"].displayValue,
             meaningful:
@@ -83,6 +90,9 @@ export default {
           };
         });
     }
+  },
+  created() {
+    this.findPagespeed("https://www.google.com/");
   }
 };
 </script>
@@ -107,10 +117,10 @@ export default {
     align-items: flex-start;
     margin: 2.5rem 0rem 0rem 5rem;
   }
-  &__viewdetails{
+  &__viewdetails {
     margin: 0rem 1rem 0rem 0rem;
   }
-  &__visitwebsite{
+  &__visitwebsite {
     margin: 0rem 0rem 0rem 1rem;
   }
   &__heading {
@@ -139,7 +149,7 @@ export default {
       transition: ease-in-out 0.3s;
     }
   }
-  &__content{
+  &__content {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -147,7 +157,7 @@ export default {
     background: white;
     width: 33%;
   }
-  &__maindata{
+  &__maindata {
     font-size: 1.6vw;
     font-weight: 500;
     font-family: "Poppins", sans-serif;
@@ -163,7 +173,7 @@ export default {
     height: 6em;
     width: 6em;
   }
-  &__mainscore{
+  &__mainscore {
     text-transform: uppercase;
     font-size: 1.5vw;
     font-weight: 700;
@@ -171,13 +181,13 @@ export default {
     padding: 0 0 0 3vw;
     margin: 0 0 0 1.6em;
   }
-  &__maindescription{
+  &__maindescription {
     font-size: 0.9vw;
     font-weight: 300;
     font-family: "Raleway", sans-serif;
     padding: 0 4vw 0 3vw;
   }
-  &__fielddata{
+  &__fielddata {
     font-size: 0.9vw;
     font-weight: 600;
     font-family: "Raleway", sans-serif;
@@ -192,7 +202,7 @@ export default {
     height: 6em;
     width: 6em;
   }
-  &__metricsdescription{
+  &__metricsdescription {
     font-size: 0.9vw;
     font-weight: 600;
     font-family: "Raleway", sans-serif;
