@@ -21,11 +21,8 @@
 import { EventBus } from "../main";
 export default {
   name: "Home",
-  methods: {
-    changePage: function() {
-      EventBus.$emit("changePage", "profile");
-      console.log("Clicked");
-    }
+  created() {
+    EventBus.$emit("changePage", "home");
   },
   data() {
     return {};

@@ -8,10 +8,14 @@ import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
+import Home from './components/Home';
+import Projects from './components/Projects';
+import Pagespeed from './components/Pagespeed';
+
 library.add(
-  faAngleLeft, 
+  faAngleLeft,
   faFacebookSquare
-  )
+)
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
 
@@ -21,10 +25,6 @@ Vue.config.productionTip = false
 
 Vue.use(VueRouter);
 Vue.use(VueResource);
-
-import Home from './components/Home';
-import Projects from './components/Projects';
-import Pagespeed from './components/Pagespeed';
 
 const routes = [{
   name: 'home',
