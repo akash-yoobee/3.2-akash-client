@@ -25,10 +25,13 @@ export default {
     changePage: function() {
       EventBus.$emit("changePage", "profile");
       console.log("Clicked");
+    },
+    created() {
+      EventBus.$emit("changePage", "home");
+    },
+    data() {
+      return {};
     }
-  },
-  data() {
-    return {};
   }
 };
 </script>
