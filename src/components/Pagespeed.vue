@@ -91,7 +91,7 @@ export default {
         });
     }
   },
-  created() {
+  created: function() {
     this.findPagespeed("https://www.google.com/");
   }
 };
