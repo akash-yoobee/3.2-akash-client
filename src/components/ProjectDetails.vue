@@ -1,7 +1,7 @@
 <template>
   <div class="project">
     <div class="project__heading">
-      <h1 class="project__heading-text">{{ project.name }}</h1>
+      <h1 class="project__heading-text">{{ project.title }}</h1>
       <div class="project__button" >
         <Btn text="Visit Website" modifier="inverse" />
         <Btn text="View Pagespeed" link="pagespeed" />
@@ -12,8 +12,8 @@
       <p>{{ project.body }}</p>
     </div>
     <div class="project__grid">
-      <img :src="project.image" />
-      <img :src="project.imageMobile" />
+      <img :src="project.desktopImageUrl" />
+      <img :src="project.mobileImageUrl" />
     </div>
     <div class="projects"></div>
   </div>
@@ -22,6 +22,8 @@
 <script>
 import Btn from "./button/Btn";
 import { EventBus } from "../main"
+import axios from 'axios'
+import * as config from '../../config'
 
 export default {
   name: "ProjectDetails",
@@ -33,18 +35,22 @@ export default {
   },
   data() {
     return {
-      props: ['projectDetails'],
       project: {
-        name: "Black Estate",
-        slogan: "\"A fantastic place to drink wine\"",
-        body:
-          "Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Did I mention that I like golf? I hope I made Tiger Woods proud. Did I mention that I like golf?",
-        image:
-          "https://s3-us-west-1.amazonaws.com/nerby-test/wp-content/uploads/2015/04/15170403/Nike-42.jpg",
-        imageMobile:
-          "https://www.chrishansolutions.com/assets/images/basketball.png"
+        title: '',
+        slogan: '',
+        body: '',        
+        desktopImageUrl: "",
+        mobileImageUrl: ""
       }
-    };
+    }
+  },
+  methods: {
+    getProject: function(projectId) {
+      return axios
+        .get(`${config.apiUrl}/projects/${projectId}`)
+        .then(res => { return res.data.project })
+        .catch(error => console.log(error))
+    }
   }
 };
 </script>
@@ -102,3 +108,18 @@ export default {
   }
 }
 </style>
+
+
+
+    //   props: ['projectDetails'],
+    //   project: {
+    //     name: "Black Estate",
+    //     slogan: "\"A fantastic place to drink wine\"",
+    //     body:
+    //       "Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Hi my name is Anton and I really like golf and this one time I hit a hole in one I hope I made Tiger Woods proud. Did I mention that I like golf? I hope I made Tiger Woods proud. Did I mention that I like golf?",
+    //     image:
+    //       "https://s3-us-west-1.amazonaws.com/nerby-test/wp-content/uploads/2015/04/15170403/Nike-42.jpg",
+    //     imageMobile:
+    //       "https://www.chrishansolutions.com/assets/images/basketball.png"
+    //   }
+    // };
