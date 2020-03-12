@@ -18,9 +18,11 @@ export default {
 <style scoped>
   input {
     width: 100%;
-    border-radius: 2px;
+    font-size: 1.6vw;
+    font-weight: 500;
+    font-family: "Raleway", sans-serif;
   }
   div {
-    margin: 20px;
+    margin: 2vh 0 0 0;
   }
 </style>
