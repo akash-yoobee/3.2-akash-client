@@ -21,6 +21,7 @@
 import { EventBus } from "../main";
 export default {
   name: "Home",
+<<<<<<< HEAD
   methods: {
     changePage: function() {
       EventBus.$emit("changePage", "profile");
@@ -32,6 +33,13 @@ export default {
     data() {
       return {};
     }
+=======
+  created() {
+    EventBus.$emit("changePage", "home");
+  },
+  data() {
+    return {};
+>>>>>>> f599889edbe658f2fb853ed0f684da93f2d4325d
   }
 };
 </script>
