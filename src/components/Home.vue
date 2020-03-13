@@ -1,6 +1,7 @@
 <template>
   <div class="home">
-    <router-link :to="{name: 'projects'}">
+    <!-- Try replacing RHS article.id with users[0].firstName -->
+    <router-link :to="{name: 'projects', params: { articleId: article.id}}">
       <div class="home__card home__card--anton">
         <p class="home__label">{{ users[0].firstName }}</p>
       </div>
@@ -39,6 +40,9 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+    },
+    say: function(message) {
+      console.log(message);
     }
   },
   created: async function() {

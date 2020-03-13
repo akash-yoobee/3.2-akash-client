@@ -2,13 +2,19 @@
   <div class="projects">
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
+      <h1>{{ article.title }}</h1>
       <div class="projects__button">
         <Btn text="back to home" link="home" />
       </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
-        <router-link :to="{name: 'projectdetails'}" v-for="project in projects" :key="project.name" class="projects__item">
+        <router-link
+          :to="{name: 'projectdetails'}"
+          v-for="project in projects"
+          :key="project.name"
+          class="projects__item"
+        >
           <img :src="project.image" />
         </router-link>
       </div>
@@ -18,20 +24,26 @@
 
 <script>
 import Btn from "./button/Btn";
-import { EventBus } from "../main"
+import { EventBus } from "../main";
 export default {
   name: "Projects",
   components: {
     Btn
   },
-  created () {
-    EventBus.$emit('changePage', 'profile')
+  created() {
+    EventBus.$emit("changePage", "profile");
+    const userName = this.$route.params.articleId;
+    // to get all frojects by this user
+    // const useName = this.$route.params.articleId;
+    // created: async function() {
+    // this.article = await this.getArticle(articleId);
+    // this.usersProjects = await this.getArticle(articleId);
   },
   data() {
     return {
       projects: [
         {
-          name: "project 1",  
+          name: "project 1",
           image: "https://i.ibb.co/BZR193C/syscoin.jpg",
           path: "/projectDetails"
         },
@@ -51,6 +63,7 @@ export default {
           path: "/projectDetails"
         }
       ]
+      // usersProjects: {}
     };
   }
 };
