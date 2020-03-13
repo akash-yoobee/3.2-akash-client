@@ -1,12 +1,13 @@
 <template>
   <div class="project">
-    <div class="project__heading">
+    <ProjectHeader />
+    <!-- <div class="project__heading">
       <h1 class="project__heading-text">{{ project.title }}</h1>
-      <div class="project__button" >
+      <div class="project__button">
         <Btn text="Visit Website" modifier="inverse" />
         <Btn text="View Pagespeed" link="pagespeed" />
       </div>
-    </div>
+    </div> -->
     <h2 class="project__heading-sub">{{ project.slogan }}</h2>
     <div class="project__body">
       <p>{{ project.body }}</p>
@@ -20,36 +21,38 @@
 </template>
 
 <script>
-import Btn from "./button/Btn";
-import { EventBus } from "../main"
-import axios from 'axios'
-import * as config from '../../config'
+import ProjectHeader from "./headers/ProjectHeader"
+import { EventBus } from "../main";
+import axios from "axios";
+import * as config from "../../config";
 
 export default {
   name: "ProjectDetails",
   components: {
-    Btn
+    ProjectHeader
   },
-  created () {
-    EventBus.$emit('changePage', 'list')
+  created() {
+    EventBus.$emit("changePage", "list");
   },
   data() {
     return {
       project: {
-        title: '',
-        slogan: '',
-        body: '',        
+        title: "",
+        slogan: "",
+        body: "",
         desktopImageUrl: "",
         mobileImageUrl: ""
       }
-    }
+    };
   },
   methods: {
     getProject: function(projectId) {
       return axios
         .get(`${config.apiUrl}/projects/${projectId}`)
-        .then(res => { return res.data.project })
-        .catch(error => console.log(error))
+        .then(res => {
+          return res.data.project;
+        })
+        .catch(error => console.log(error));
     }
   }
 };
@@ -59,26 +62,26 @@ export default {
 .project {
   padding: 2rem 6rem 2rem;
 
-  &__heading {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-top: 2rem;
-  }
+  // &__heading {
+  //   display: flex;
+  //   justify-content: space-between;
+  //   align-items: center;
+  //   margin-top: 2rem;
+  // }
 
-  &__button {
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-gap: 2rem;
-    justify-items: center;
-  }
+  // &__button {
+  //   display: grid;
+  //   grid-template-columns: 50% 50%;
+  //   grid-gap: 2rem;
+  //   justify-items: center;
+  // }
 
-  &__heading-text {
-    font-family: "Poppins", sans-serif;
-    font-size: 80px;
-    font-weight: bold;
-    color: #222222;
-  }
+  // &__heading-text {
+  //   font-family: "Poppins", sans-serif;
+  //   font-size: 80px;
+  //   font-weight: bold;
+  //   color: #222222;
+  // }
 
   &__heading-sub {
     padding: 0.8rem 0 0.7rem 0;
@@ -95,7 +98,7 @@ export default {
     font-size: 16px;
     font-weight: 300;
     line-height: 2rem;
-    color: #2B2B2B
+    color: #2b2b2b;
   }
 
   &__grid {

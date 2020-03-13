@@ -1,31 +1,25 @@
 <template>
   <div class="pagespeed">
     <div class="pagespeed__header">
-      <div>
-        <h1 class="pagespeed__heading">Loom</h1>
-        <p class="pagespeed__subheading">Page Speed Insights Results</p>
-      </div>
-      <div class="pagespeed__buttons">
-        <Btn text="view details" href />
-        <Btn text="visit website" href />
-      </div>
+    <ProjectHeader />
     </div>
+    <p class="pagespeed__subheading">Page Speed Insights Results</p>
 
     <div class="pagespeed__metrics">
-        <div v-for="data in metrics" :key="data.name">
-          <img :src="data.image" />
-        </div>
+      <div v-for="data in metrics" :key="data.name">
+        <img :src="data.image" />
+      </div>
     </div>
   </div>
 </template>
 
 <script>
-import Btn from "./button/Btn";
+import ProjectHeader from "./headers/ProjectHeader";
 
 export default {
   name: "Pagespeed",
   components: {
-    Btn
+    ProjectHeader
   },
   data() {
     return {
