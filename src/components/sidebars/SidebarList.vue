@@ -1,9 +1,9 @@
 <template>
   <div class="profile">
     <div class="profile__content">
-      <h5 class="profile__heading">Group Portfolio</h5>
+      <router-link :to="{name: 'home'}"><h5 class="profile__heading">Group Portfolio</h5></router-link>
       <div class="profile__name">
-        <font-awesome-icon class="profile__icon" icon="angle-left" />
+        <BackArrow link="projects"/>
         <h3>Chris</h3>
       </div>
       <h6 class="profile__sub-heading">Projects List</h6>
@@ -17,9 +17,10 @@
 </template>
 
 <script>
-
+import BackArrow from '../backArrow/BackArrow'
 export default {
   components: {
+    BackArrow
   }
 };
 </script>
