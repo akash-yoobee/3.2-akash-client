@@ -30,7 +30,6 @@ import ProjectDetails from './components/ProjectDetails'
 import AdminLogin from './components/admin/AdminLogin'
 import AdminProfile from './components/admin/AdminProfile'
 
-
 const routes = [{
   path: '/',
   component: Site,
