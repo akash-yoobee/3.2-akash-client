@@ -1,10 +1,16 @@
 <template>
-  <div id="app">
-    <router-view></router-view>
+  <div id="admin">
+      <router-view></router-view>
   </div>
 </template>
 
 <script>
+
+export default {
+  name: "Admin",
+  components: {
+  }
+};
 </script>
 
 <style lang="scss">
@@ -51,7 +57,7 @@ h1 {
   font-size: 80px;
   font-weight: 600;
 }
-a {
+a{
   color: white;
   text-decoration: none;
 }
@@ -70,8 +76,10 @@ img {
   height: auto;
   border-radius: $global-border-radius;
 }
-#app {
-height: 100%;
+#admin {
+  display: flex;
+  height: 100vh;
+  width: 100vw;
 }
 .content {
   overflow-y: scroll;
