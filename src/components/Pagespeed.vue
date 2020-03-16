@@ -51,6 +51,7 @@
 
 <script>
 import Btn from "./button/Btn";
+import { EventBus } from "../main";
 
 export default {
   name: "Pagespeed",
@@ -93,6 +94,7 @@ export default {
   },
   created: function() {
     this.findPagespeed("https://www.google.com/");
+    EventBus.$emit("changePage", "list");
   }
 };
 </script>
