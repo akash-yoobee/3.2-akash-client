@@ -3,13 +3,14 @@ import App from './App.vue'
 import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faAngleLeft } from '@fortawesome/free-solid-svg-icons'
+import { faAngleLeft, faPlus } from '@fortawesome/free-solid-svg-icons'
 import { faFacebookSquare } from '@fortawesome/free-brands-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
 
 library.add(
   faAngleLeft,
-  faFacebookSquare
+  faFacebookSquare,
+  faPlus
 )
 
 Vue.component('font-awesome-icon', FontAwesomeIcon)
@@ -28,7 +29,7 @@ import Projects from './components/Projects';
 import Pagespeed from './components/Pagespeed';
 import ProjectDetails from './components/ProjectDetails'
 import AdminLogin from './components/admin/AdminLogin'
-
+import AdminProfile from './components/admin/AdminProfile'
 
 const routes = [{
   path: '/',
@@ -62,11 +63,15 @@ const routes = [{
       name: 'adminLogin',
       path: '/',
       component: AdminLogin
+    },
+    {
+      name: 'adminProfile',
+      path: 'profile',
+      component: AdminProfile
     }
   ]
 }
 ]
-
 
 const router = new VueRouter({
   routes

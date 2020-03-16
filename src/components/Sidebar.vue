@@ -43,7 +43,7 @@ export default {
   background: linear-gradient(45deg, #060e14, #1e2d3a);
   min-width: 400px;
   width: 400px;
-
+  overflow-y: scroll;
 }
 </style>
 
