@@ -1,12 +1,10 @@
 <template>
   <div class="pagespeed">
-    <div class="pagespeed__header">
     <ProjectHeader />
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
-      </div>
-      <div class="pagespeed__buttons">
+      <!-- <div class="pagespeed__buttons">
         <Btn
           class="pagespeed__viewdetails"
           text="view details"
@@ -14,7 +12,7 @@
           modifier="inverse"
           href
         />
-        <Btn class="pagespeed__visitwebsite" text="visit website" href />
+        <Btn class="pagespeed__visitwebsite" text="visit website" href /> -->
       </div>
     <div class="pagespeed__metrics">
       <div v-for="data in metrics" :key="data.name">
@@ -47,6 +45,7 @@
         <div class="pagespeed__metricsdescription">Estimated Input Latency</div>
       </div>
     </div>
+  </div>
   </div>
 </template>
 
