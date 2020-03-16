@@ -1,18 +1,28 @@
 <template>
-  <div class="pagespeed">
+  <div v-cloak class="pagespeed">
+    <!-- <div class="loader preloader-wrapper big active">
+      <div class="spinner-layer spinner-blue-only">
+        <div class="circle-clipper left">
+          <div class="circle"></div>
+        </div>
+        <div class="gap-patch">
+          <div class="circle"></div>
+        </div>
+        <div class="circle-clipper right">
+          <div class="circle"></div>
+        </div>
+      </div>
+    </div>-->
+
     <div class="pagespeed__header">
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
       </div>
       <div class="pagespeed__buttons">
-        <Btn
-          class="pagespeed__viewdetails"
-          text="view details"
-          v-on:keyup.13="findPagespeed"
-          modifier="inverse"
-          href
-        />
+        <!-- <router-link :to="{name: 'projectdetails', params: { websiteName: siteName }}"> -->
+        <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href />
+        <!-- </router-link> -->
         <Btn class="pagespeed__visitwebsite" text="visit website" href />
       </div>
     </div>
@@ -59,7 +69,8 @@ export default {
   },
   data() {
     return {
-      pageStats: []
+      pageStats: [],
+      siteName: ""
     };
   },
   methods: {
@@ -99,6 +110,10 @@ export default {
 
 <style scoped lang="scss">
 @import "../assets/scss/_variables";
+
+[v-cloak] {
+  display: none;
+}
 
 .pagespeed {
   background: $global-background;
@@ -144,10 +159,6 @@ export default {
     padding: 2.5rem 1rem 2rem 1rem;
     box-shadow: $global-box-shadow;
     transition: ease-in-out 0.3s;
-    &:hover {
-      transform: scale(1.02);
-      transition: ease-in-out 0.3s;
-    }
   }
   &__content {
     display: flex;

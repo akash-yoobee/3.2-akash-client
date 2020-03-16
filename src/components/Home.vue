@@ -39,9 +39,6 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
-    },
-    say: function(message) {
-      console.log(message);
     }
   },
   created: async function() {

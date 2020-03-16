@@ -1,0 +1,29 @@
+  <!-- Preloader -->
+  <div class="loader preloader-wrapper big active">
+    <div class="spinner-layer spinner-blue-only">
+      <div class="circle-clipper left">
+        <div class="circle"></div>
+      </div>
+      <div class="gap-patch">
+        <div class="circle"></div>
+      </div>
+      <div class="circle-clipper right">
+        <div class="circle"></div>
+      </div>
+    </div>
+  </div>
+
+    <script type="text/javascript" src="js/materialize.min.js"></script>
+
+// Hiding all sections
+$('.section').hide();
+
+// Everything in here happens after waiting 1000 millisecond
+setTimeout(function () {
+  $(document).ready(function () {
+    // Showing all sections
+    $('.section').fadeIn();
+
+    // Hiding the preloader
+    $('.loader').fadeOut();
+    }, 1000);
