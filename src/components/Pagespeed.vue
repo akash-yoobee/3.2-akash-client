@@ -14,9 +14,8 @@
         />
         <Btn class="pagespeed__visitwebsite" text="visit website" href /> -->
       </div>
+
     <div class="pagespeed__metrics">
-      <div v-for="data in metrics" :key="data.name">
-        <img :src="data.image" />
       <div class="pagespeed__content">
         <div class="pagespeed__maindata">{{ pageStats.score }}</div>
         <div class="pagespeed__mainscore">score</div>
@@ -46,16 +45,16 @@
       </div>
     </div>
   </div>
-  </div>
 </template>
 
 <script>
-import ProjectHeader from "./headers/ProjectHeader";
+import Btn from "./button/Btn";
+import { EventBus } from "../main";
 
 export default {
   name: "Pagespeed",
   components: {
-    ProjectHeader
+    Btn
   },
   data() {
     return {
@@ -91,8 +90,9 @@ export default {
         });
     }
   },
-  created() {
+  created: function() {
     this.findPagespeed("https://www.google.com/");
+    EventBus.$emit("changePage", "list");
   }
 };
 </script>

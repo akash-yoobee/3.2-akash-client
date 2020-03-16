@@ -42,7 +42,8 @@ const routes = [{
   {
     name: 'projects',
     path: '/projects',
-    component: Projects
+    component: Projects,
+    props: true //this enables route params
   },
   {
     name: "pagespeed",
