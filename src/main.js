@@ -30,6 +30,7 @@ import Pagespeed from './components/Pagespeed';
 import ProjectDetails from './components/ProjectDetails'
 import AdminLogin from './components/admin/AdminLogin'
 import AdminProfile from './components/admin/AdminProfile'
+import AdminProject from './components/admin/AdminProject'
 
 const routes = [{
   path: '/',
@@ -68,6 +69,11 @@ const routes = [{
       name: 'adminProfile',
       path: 'profile',
       component: AdminProfile
+    },
+    {
+      name: 'adminProject',
+      path: 'project',
+      component: AdminProject
     }
   ]
 }
