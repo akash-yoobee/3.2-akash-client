@@ -28,5 +28,6 @@ export default {
 .content {
   overflow-y: scroll;
   background: $global-background;
+  width: 100%;
 }
 </style>
