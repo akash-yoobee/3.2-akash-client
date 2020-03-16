@@ -30,14 +30,10 @@ export default {
   components: {
     Btn
   },
-  created() {
+  created: async function() {
     EventBus.$emit("changePage", "profile");
-    const userName = this.$route.params.articleId;
-    // to get all frojects by this user
-    // const useName = this.$route.params.articleId;
-    // created: async function() {
-    // this.article = await this.getArticle(articleId);
-    // this.usersProjects = await this.getArticle(articleId);
+    this.userName = await this.$route.params.userId;
+    console.log(this.userName);
   },
   data() {
     return {
@@ -62,8 +58,8 @@ export default {
           image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg",
           path: "/projectDetails"
         }
-      ]
-      // usersProjects: {}
+      ],
+      userName: ''
     };
   }
 };
