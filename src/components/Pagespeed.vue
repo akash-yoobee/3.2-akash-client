@@ -20,10 +20,14 @@
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
       </div>
       <div class="pagespeed__buttons">
-        <!-- <router-link :to="{name: 'projectdetails', params: { websiteName: siteName }}"> -->
-        <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href />
-        <!-- </router-link> -->
+        <router-link :to="{name: 'projectdetails', params: { websiteName: siteName }}">
+          <div>
+            <!-- <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href /> -->
+            <Button class="pagespeed__viewdetails" type="button" value="view details" modifier="inverse">VIEW DETAILS</button>
+          </div>
+        </router-link>
         <Btn class="pagespeed__visitwebsite" text="visit website" href />
+        <!-- <p class="pagespeed__visitwebsite">VISIT WEBSITE</p> -->
       </div>
     </div>
 

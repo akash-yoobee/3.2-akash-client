@@ -53,7 +53,8 @@ const routes = [{
   {
     name: 'projectdetails',
     path: '/projectdetails',
-    component: ProjectDetails
+    component: ProjectDetails,
+    props: true //this enables route params
   }]
 }, {
   path: '/admin',
