@@ -1,21 +1,36 @@
 <template>
   <div class="pagespeed">
-    <ProjectHeader />
+    <div class="pagespeed__header">
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
-      <!-- <div class="pagespeed__buttons">
-        <Btn
-          class="pagespeed__viewdetails"
-          text="view details"
-          v-on:keyup.13="findPagespeed"
-          modifier="inverse"
-          href
-        />
-        <Btn class="pagespeed__visitwebsite" text="visit website" href /> -->
       </div>
+      <div class="pagespeed__buttons">
+        <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href />
+        <Btn class="pagespeed__visitwebsite" text="visit website" href />
+      </div>
+    </div>
 
-    <div class="pagespeed__metrics">
+    <div v-if="loading">
+      <div class="pagespeed__loading-container">
+        <div class="pagespeed__loading">
+          <div class="pagespeed__solar-system">
+            <div class="pagespeed__orbit pagespeed__orbit--earth">
+              <div class="pagespeed__planet"></div>
+              <div class="pagespeed__orbit pagespeed__orbit--venus">
+                <div class="pagespeed__planet"></div>
+                <div class="pagespeed__orbit--mercury">
+                  <div class="pagespeed__planet"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pagespeed__sun"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="!loading" class="pagespeed__metrics">
       <div class="pagespeed__content">
         <div class="pagespeed__maindata">{{ pageStats.score }}</div>
         <div class="pagespeed__mainscore">score</div>
@@ -48,7 +63,6 @@
 </template>
 
 <script>
-import { EventBus } from "../main";
 
 export default {
   name: "Pagespeed",
@@ -56,7 +70,9 @@ export default {
   },
   data() {
     return {
-      pageStats: []
+      pageStats: [],
+      siteName: "",
+      loading: true
     };
   },
   methods: {
@@ -66,6 +82,8 @@ export default {
       fetch(query)
         .then(response => response.json())
         .then(json => {
+          this.loading = false;
+          // console.log(this.loading);
           let rawScore = json.lighthouseResult.categories["performance"].score;
           let mainScore = (rawScore * 100).toFixed(0);
           this.pageStats = {
@@ -90,7 +108,6 @@ export default {
   },
   created: function() {
     this.findPagespeed("https://www.google.com/");
-    EventBus.$emit("changePage", "list");
   }
 };
 </script>
@@ -103,6 +120,52 @@ export default {
   padding: 2rem 6rem 4rem;
   height: 100vh;
   width: 78vw;
+  &__loading-container{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  &__loading {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  &__solar-system {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__orbit{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8f9690;
+    border-radius: 50%;
+  }
+  &__planet{
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fdd340;
+  }
+  &__sun{
+    position: relative;
+    left: -98px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #2dbe60;
+  }
   &__header {
     display: flex;
     flex-direction: row;
@@ -142,10 +205,6 @@ export default {
     padding: 2.5rem 1rem 2rem 1rem;
     box-shadow: $global-box-shadow;
     transition: ease-in-out 0.3s;
-    &:hover {
-      transform: scale(1.02);
-      transition: ease-in-out 0.3s;
-    }
   }
   &__content {
     display: flex;
@@ -208,6 +267,25 @@ export default {
     white-space: nowrap;
     text-align: center;
     margin: 1em 0 2em 0;
+  }
+  .pagespeed__orbit--earth {
+    width: 165px;
+    height: 165px;
+    -webkit-animation: spin 12s linear 0s infinite;
+  }
+  .pagespeed__orbit--venus {
+	width: 120px;
+	height: 120px;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+  }
+  .pagespeed__orbit--mercury {
+	width: 90px;
+	height: 90px;
+  -webkit-animation: spin 3s linear 0s infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0); }
+    to{ transform: rotate(359deg);}
   }
 }
 </style>
