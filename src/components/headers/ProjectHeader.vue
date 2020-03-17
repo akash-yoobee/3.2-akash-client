@@ -1,6 +1,6 @@
 <template>
   <div class="project__heading">
-    <h1 class="project__heading-text">{{ project.title }}</h1>
+    <h1 class="project__heading-text">{{ projectTitle }}</h1>
     <div class="project__button">
       <Btn text="Visit Website" modifier="inverse" />
       <Btn text="View Pagespeed" link="pagespeed" />
@@ -16,11 +16,9 @@ export default {
   components: {
     Btn
   },
+  props: ['projectTitle'],
   data() {
     return {
-      project: {
-        title: "Project Title"
-      }
     };
   }
 };

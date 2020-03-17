@@ -1,10 +1,12 @@
 <template>
   <div class="profile">
     <div class="profile__content">
-      <router-link :to="{name: 'home'}"><h5 class="profile__heading">Group Portfolio</h5></router-link>
+      <router-link :to="{name: 'home'}">
+        <h5 class="profile__heading">Group Portfolio</h5>
+      </router-link>
       <div class="profile__name">
-        <BackArrow link="home"/>
-        <h3>Chris</h3>
+        <BackArrow link="home" />
+        <h3>{{user}}</h3>
       </div>
       <h6 class="profile__sub-heading">Profile</h6>
       <div class="profile__image-container">
@@ -22,18 +24,30 @@
     <div class="profile__footer">
       <Btn text="Contact" modifier="light" />
       <!-- <div class="profile__footer-icon"><font-awesome-icon class="profile__icon-footer" :icon="['fab', 'facebook-square']" /></div>
-      <div class="profile__footer-icon"><font-awesome-icon class="profile__icon-footer" :icon="['fab', 'facebook-square']" /></div> -->
+      <div class="profile__footer-icon"><font-awesome-icon class="profile__icon-footer" :icon="['fab', 'facebook-square']" /></div>-->
     </div>
   </div>
 </template>
 
 <script>
 import Btn from "../button/Btn";
-import BackArrow from '../backArrow/BackArrow'
+import BackArrow from "../backArrow/BackArrow";
+import { EventBus } from "../../main";
 export default {
   components: {
     Btn,
     BackArrow
+  },
+  props: ['user'],
+  data() {
+    return {
+    };
+  },
+  created() {
+    EventBus.$on("currentUser", data => {
+      this.user = data;
+      console.log(data);
+    })
   }
 };
 </script>
