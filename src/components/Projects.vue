@@ -1,21 +1,21 @@
 <template>
   <div class="projects">
     <div class="projects__header">
-      <h1 class="projects__heading">Projects</h1>
+      <h1 class="projects__heading">{{user}}</h1>
       <div class="projects__button">
         <Btn text="back to home" link="home" />
       </div>
     </div>
     <div class="projects__list-wrapper">
       <div class="projects__grid">
-        <router-link
-          :to="{name: 'projectdetails'}"
-          v-for="project in projects"
-          :key="project.name"
-          class="projects__item"
-        >
-          <img :src="project.desktopImageUrl" />
-        </router-link>
+        <div v-for="project in projects" :key="project.id">
+          <router-link
+            :to="{name: 'projectdetails', params: { projectId: project.id }}"
+            class="projects__item"
+          >
+            <img :src="project.desktopImageUrl" />
+          </router-link>
+        </div>
       </div>
     </div>
   </div>
@@ -27,19 +27,19 @@ import Btn from "./button/Btn";
 import { EventBus } from "../main";
 
 const apiBaseUrl = "http://localhost:3000/v1";
-
 export default {
   name: "Projects",
   components: {
     Btn
-  }, 
+  },
+  props: ["user"],
   data() {
     return {
       projects: []
     };
   },
   created: async function() {
-    EventBus.$emit("changePage", "profile")
+    EventBus.$emit("changePage", "profile");
     this.projects = await this.getProjects();
   },
   methods: {

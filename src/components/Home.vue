@@ -1,16 +1,16 @@
 <template>
   <div class="home">
-    <router-link :to="{name: 'projects', params: { userId: users[0].firstName }}">
+    <router-link :to="{name: 'projects', params: { user: users[0].firstName }}">
       <div class="home__card home__card--anton">
         <p class="home__label">{{ users[0].firstName }}</p>
       </div>
     </router-link>
-    <router-link :to="{name: 'projects', params: { userId: users[1].firstName }}">
+    <router-link :to="{name: 'projects', params: { user: users[1].firstName }}">
       <div class="home__card home__card--chris">
         <p class="home__label">{{ users[1].firstName }}</p>
       </div>
     </router-link>
-    <router-link :to="{name: 'projects', params: { userId: users[2].firstName }}">
+    <router-link :to="{name: 'projects', params: { user: users[2].firstName }}">
       <div class="home__card home__card--akash">
         <p class="home__label">{{ users[2].firstName }}</p>
       </div>

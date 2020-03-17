@@ -24,6 +24,7 @@ export default {
   components: {
     ProjectHeader
   },
+  props: ['projectId'],
   created() {
     EventBus.$emit("changePage", "list");
   },
@@ -39,13 +40,16 @@ export default {
     };
   },
   methods: {
-    getProject: function(projectId) {
+getProject: function(projectId) {
       return axios
         .get(`${config.apiUrl}/projects/${projectId}`)
-        .then(res => {
-          return res.data.project;
+        .then(function(response) {
+          return response.data.project;
         })
-        .catch(error => console.log(error));
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
     }
   }
 };
