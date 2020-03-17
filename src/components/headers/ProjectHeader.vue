@@ -1,20 +1,18 @@
 <template>
-  <div class="project">
-    <div class="project__heading">
-      <h1 class="project__heading-text">{{ project.title }}</h1>
-      <div class="project__button">
-        <Btn text="Visit Website" modifier="inverse" />
-        <Btn text="View Pagespeed" link="pagespeed" />
-      </div>
+  <div class="project__heading">
+    <h1 class="project__heading-text">{{ project.title }}</h1>
+    <div class="project__button">
+      <Btn text="Visit Website" modifier="inverse" />
+      <Btn text="View Pagespeed" link="pagespeed" />
     </div>
   </div>
 </template>
 
     <script>
-import Btn from "../button/Btn"
+import Btn from "../button/Btn";
 
 export default {
-  name: 'ProjectHeader',
+  name: "ProjectHeader",
   components: {
     Btn
   },
@@ -29,9 +27,9 @@ export default {
 </script>
 
 <style scoped lang="scss">
-
 .project {
   padding: 2rem 6rem 2rem;
+  width: 100%;
 
   &__heading {
     display: flex;
@@ -40,7 +38,7 @@ export default {
     margin-top: 2rem;
   }
 
-    &__button {
+  &__button {
     display: grid;
     grid-template-columns: 50% 50%;
     grid-gap: 2rem;
@@ -52,8 +50,7 @@ export default {
     font-size: 80px;
     font-weight: bold;
     color: #222222;
+    margin-right: 2rem;
   }
-
 }
-
 </style>

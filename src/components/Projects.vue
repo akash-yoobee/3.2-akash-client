@@ -2,7 +2,6 @@
   <div class="projects">
     <div class="projects__header">
       <h1 class="projects__heading">Projects</h1>
-      <h1>{{ article.title }}</h1>
       <div class="projects__button">
         <Btn text="back to home" link="home" />
       </div>
@@ -15,7 +14,7 @@
           :key="project.name"
           class="projects__item"
         >
-          <img :src="project.image" />
+          <img :src="project.desktopImageUrl" />
         </router-link>
       </div>
     </div>
@@ -23,44 +22,38 @@
 </template>
 
 <script>
+import axios from "axios";
 import Btn from "./button/Btn";
 import { EventBus } from "../main";
+
+const apiBaseUrl = "http://localhost:3000/v1";
+
 export default {
   name: "Projects",
   components: {
     Btn
-  },
-  created: async function() {
-    EventBus.$emit("changePage", "profile");
-    this.userName = await this.$route.params.userId;
-    console.log(this.userName);
-  },
+  }, 
   data() {
     return {
-      projects: [
-        {
-          name: "project 1",
-          image: "https://i.ibb.co/BZR193C/syscoin.jpg",
-          path: "/projectDetails"
-        },
-        {
-          name: "project 2",
-          image: "https://i.ibb.co/vVfPb77/skullandroses-com-1.jpg",
-          path: "/projectDetails"
-        },
-        {
-          name: "project 3",
-          image: "https://i.ibb.co/0QDKqP5/chronicled-com-17.jpg",
-          path: "/projectDetails"
-        },
-        {
-          name: "project 4",
-          image: "https://i.ibb.co/njkHptC/feroxcorp-com-1.jpg",
-          path: "/projectDetails"
-        }
-      ],
-      userName: ''
+      projects: []
     };
+  },
+  created: async function() {
+    EventBus.$emit("changePage", "profile")
+    this.projects = await this.getProjects();
+  },
+  methods: {
+    getProjects: function() {
+      return axios
+        .get(`${apiBaseUrl}/projects/`)
+        .then(function(response) {
+          return response.data.projects;
+        })
+        .catch(function(error) {
+          // handle error
+          console.log(error);
+        });
+    }
   }
 };
 </script>

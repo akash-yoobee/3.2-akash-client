@@ -9,29 +9,34 @@
             <div v-for="project in projects" :key="project.name" class="projects__item">
               <img :src="project.image" />
             </div>
-            <div class="projects__new-item">
-              <div class="projects__icon-wrap">
-                <font-awesome-icon class="projects__icon" icon="plus" />
+            <router-link class="projects__new-link" :to="{name: 'adminProject'}">
+              <div class="projects__new-item">
+                <div class="projects__icon-wrap">
+                  <font-awesome-icon class="projects__icon" icon="plus" />
+                </div>
+                <p>Add New Project</p>
               </div>
-              <p>Add New Project</p>
-            </div>
+            </router-link>
           </div>
         </div>
       </div>
       <div class="profile">
         <h3>Profile</h3>
         <div class="profile__container">
-          <div class="profile__grid">
+          <div class="profile__item">
             <label for="blurb">Blurb</label>
             <textarea name="blurb" type="textField" :value="person.blurb" />
           </div>
-          <div class="profile__grid">
+          <div class="profile__item">
             <label for="profilePic">Profile Pic</label>
             <input type="text" name="profilePic" :value="person.profilePic" />
           </div>
-          <div class="profile__grid">
+          <div class="profile__item">
             <label for="email">Email</label>
             <input type="email" name="email" :value="person.email" />
+          </div>
+          <div class="profile__save-btn">
+            <Btn text="Save Changes" />
           </div>
         </div>
       </div>
@@ -41,8 +46,12 @@
 </template>
 
 <script>
+import Btn from "../button/Btn";
 export default {
   name: "adminProfile",
+  components: {
+    Btn
+  },
   data() {
     return {
       person: {
@@ -109,8 +118,11 @@ export default {
       width: 100%;
     }
   }
-  &__grid {
+  &__item {
     padding: 0.5rem 0;
+  }
+  &__save-btn {
+    margin-top: 1rem;
   }
 }
 .projects {
@@ -128,18 +140,22 @@ export default {
       transition: ease-in-out 0.3s;
     }
   }
+  &__new-link{
+    display: flex;
+    justify-content: center;
+  }
   &__new-item {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
   }
-  &__icon{
+  &__icon {
     color: black;
     height: 2em;
     width: 2em;
   }
-  &__icon-wrap{
+  &__icon-wrap {
     padding: 0.5rem;
     border: 1px solid black;
     border-radius: 100%;
@@ -147,7 +163,9 @@ export default {
     display: flex;
   }
 }
-
+a {
+  color: black;
+}
 textarea {
   resize: none;
   padding: 0.5rem;
