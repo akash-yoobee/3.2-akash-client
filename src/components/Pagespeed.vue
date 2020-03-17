@@ -1,34 +1,36 @@
 <template>
-  <div v-cloak class="pagespeed">
-    <!-- <div class="loader preloader-wrapper big active">
-      <div class="spinner-layer spinner-blue-only">
-        <div class="circle-clipper left">
-          <div class="circle"></div>
-        </div>
-        <div class="gap-patch">
-          <div class="circle"></div>
-        </div>
-        <div class="circle-clipper right">
-          <div class="circle"></div>
-        </div>
-      </div>
-    </div>-->
-
+  <div class="pagespeed">
     <div class="pagespeed__header">
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
       </div>
       <div class="pagespeed__buttons">
-        <!-- <router-link :to="{name: 'projectdetails', params: { websiteName: siteName }}"> -->
         <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href />
-        <!-- </router-link> -->
         <Btn class="pagespeed__visitwebsite" text="visit website" href />
-        <!-- <p class="pagespeed__visitwebsite">VISIT WEBSITE</p> -->
       </div>
     </div>
 
-    <div class="pagespeed__metrics">
+    <div v-if="loading">
+      <div class="pagespeed__loading-container">
+        <div class="pagespeed__loading">
+          <div class="pagespeed__solar-system">
+            <div class="pagespeed__orbit pagespeed__orbit--earth">
+              <div class="pagespeed__planet"></div>
+              <div class="pagespeed__orbit pagespeed__orbit--venus">
+                <div class="pagespeed__planet"></div>
+                <div class="pagespeed__orbit--mercury">
+                  <div class="pagespeed__planet"></div>
+                </div>
+              </div>
+            </div>
+            <div class="pagespeed__sun"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-if="!loading" class="pagespeed__metrics">
       <div class="pagespeed__content">
         <div class="pagespeed__maindata">{{ pageStats.score }}</div>
         <div class="pagespeed__mainscore">score</div>
@@ -71,7 +73,8 @@ export default {
   data() {
     return {
       pageStats: [],
-      siteName: ""
+      siteName: "",
+      loading: true
     };
   },
   methods: {
@@ -81,6 +84,8 @@ export default {
       fetch(query)
         .then(response => response.json())
         .then(json => {
+          this.loading = false;
+          // console.log(this.loading);
           let rawScore = json.lighthouseResult.categories["performance"].score;
           let mainScore = (rawScore * 100).toFixed(0);
           this.pageStats = {
@@ -112,15 +117,57 @@ export default {
 <style scoped lang="scss">
 @import "../assets/scss/_variables";
 
-[v-cloak] {
-  display: none;
-}
-
 .pagespeed {
   background: $global-background;
   padding: 2rem 6rem 4rem;
   height: 100vh;
   width: 78vw;
+  &__loading-container{
+    background-color: transparent;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  &__loading {
+    width: 300px;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+  }
+  &__solar-system {
+    width: 250px;
+    height: 250px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  &__orbit{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #8f9690;
+    border-radius: 50%;
+  }
+  &__planet{
+    position: absolute;
+    top: -5px;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: #fdd340;
+  }
+  &__sun{
+    position: relative;
+    left: -98px;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background-color: #2dbe60;
+  }
   &__header {
     display: flex;
     flex-direction: row;
@@ -222,6 +269,25 @@ export default {
     white-space: nowrap;
     text-align: center;
     margin: 1em 0 2em 0;
+  }
+  .pagespeed__orbit--earth {
+    width: 165px;
+    height: 165px;
+    -webkit-animation: spin 12s linear 0s infinite;
+  }
+  .pagespeed__orbit--venus {
+	width: 120px;
+	height: 120px;
+  -webkit-animation: spin 7.4s linear 0s infinite;
+  }
+  .pagespeed__orbit--mercury {
+	width: 90px;
+	height: 90px;
+  -webkit-animation: spin 3s linear 0s infinite;
+  }
+  @keyframes spin {
+    from { transform: rotate(0); }
+    to{ transform: rotate(359deg);}
   }
 }
 </style>
