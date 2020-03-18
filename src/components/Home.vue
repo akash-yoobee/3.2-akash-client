@@ -39,10 +39,6 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
-    },
-    say: function(message) {
-      console.log(message);
-    },
     currentUser: function (event) {
       let user = event.target.dataset.user
       EventBus.$emit("currentUser", user)
