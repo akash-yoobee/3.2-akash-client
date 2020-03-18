@@ -54,7 +54,8 @@ const routes = [{
   {
     name: 'projectdetails',
     path: '/projectdetails',
-    component: ProjectDetails
+    component: ProjectDetails,
+    props: true
   }]
 }, {
   path: '/admin',

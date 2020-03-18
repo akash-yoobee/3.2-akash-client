@@ -60,13 +60,11 @@
 </template>
 
 <script>
-import Btn from "./button/Btn";
+import { EventBus } from "../main";
 
 export default {
   name: "Pagespeed",
-  components: {
-    Btn
-  },
+  components: {},
   data() {
     return {
       pageStats: [],
