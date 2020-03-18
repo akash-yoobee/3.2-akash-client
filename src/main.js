@@ -53,7 +53,7 @@ const routes = [{
   },
   {
     name: 'projectdetails',
-    path: '/projectdetails',
+    path: '/projectdetails/:projectId',
     component: ProjectDetails,
     props: true
   }]
@@ -68,8 +68,9 @@ const routes = [{
     },
     {
       name: 'adminProfile',
-      path: 'profile',
-      component: AdminProfile
+      path: 'profile/:user',
+      component: AdminProfile,
+      props: true
     },
     {
       name: 'adminProject',
