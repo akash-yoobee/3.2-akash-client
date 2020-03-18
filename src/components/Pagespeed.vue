@@ -1,6 +1,6 @@
 <template>
   <div class="pagespeed">
-    <div class="pagespeed__header">
+    <ProjectHeader />
       <div>
         <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
