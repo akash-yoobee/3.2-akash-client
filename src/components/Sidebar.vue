@@ -1,6 +1,6 @@
 <template>
   <div class="sidebar">
-    <component :is="sidebar"></component>
+    <component :is="sidebar" :user="user"></component>
   </div>
 </template>
 
@@ -18,10 +18,11 @@ export default {
   },
 
   created() {
-    console.log(this.sidebar)
     EventBus.$on('changePage', (data) => {
       this.sidebar = data
-      console.log(this.sidebar)
+    })
+    EventBus.$on("currentUser", data => {
+      this.user = data;
     })
   },
 
@@ -32,7 +33,8 @@ export default {
         name: "Chris",
         image: ""
       },
-      sidebar: "home"
+      sidebar: "home",
+      user: ""
     };
   }
 };

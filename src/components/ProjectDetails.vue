@@ -1,6 +1,6 @@
 <template>
   <div class="project">
-    <ProjectHeader />
+    <ProjectHeader :projectTitle="project.title"/>
     <h2 class="project__heading-sub">{{ project.slogan }}</h2>
     <div class="project__body">
       <p>{{ project.body }}</p>
@@ -25,24 +25,19 @@ export default {
     ProjectHeader
   },
   props: ['projectId'],
-  created() {
+  created: async function() {
     EventBus.$emit("changePage", "list");
+    this.project = await this.getProject()
   },
   data() {
     return {
-      project: {
-        title: "",
-        slogan: "",
-        body: "",
-        desktopImageUrl: "",
-        mobileImageUrl: ""
-      }
+      project: {}
     };
   },
   methods: {
-getProject: function(projectId) {
+getProject: function() {
       return axios
-        .get(`${config.apiUrl}/projects/${projectId}`)
+        .get(`${config.apiUrl}/projects/${this.projectId}`)
         .then(function(response) {
           return response.data.project;
         })
