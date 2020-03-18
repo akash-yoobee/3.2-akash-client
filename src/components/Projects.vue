@@ -1,7 +1,7 @@
 <template>
   <div class="projects">
     <div class="projects__header">
-      <h1 class="projects__heading">{{user}}</h1>
+      <h1 class="projects__heading">Projects</h1>
       <div class="projects__button">
         <Btn text="back to home" link="home" />
       </div>

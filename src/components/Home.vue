@@ -51,9 +51,10 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
+    },
     currentUser: function(event) {
-      let user = event.target.dataset.user
-      EventBus.$emit("currentUser", user)
+      let user = event.target.dataset.user;
+      EventBus.$emit("currentUser", user);
     }
   },
   created: async function() {

@@ -6,8 +6,9 @@
       <p>{{ project.body }}</p>
     </div>
     <div class="project__grid">
-      <img :src="project.desktopImageUrl" />
-      <img :src="project.mobileImageUrl" />
+      <div class="project__image"><img :src="project.desktopImageUrl" /></div>
+      <div class="project__image"><img :src="project.mobileImageUrl" /></div>
+      <div class="project__image"><img :src="project.mobileImageUrl" /></div>
     </div>
     <div class="projects"></div>
   </div>
@@ -34,6 +35,12 @@ export default {
       project: {}
     };
   },
+  watch: {
+    projectId: async function(val, val2){
+      console.log(val, val2);
+      this.project = await this.getProject()
+    }
+  },
   methods: {
 getProject: function() {
       return axios
@@ -51,6 +58,7 @@ getProject: function() {
 </script>
 
 <style scoped lang="scss">
+@import "../assets/scss/_variables";
 .project {
   padding: 2rem 6rem 2rem;
   width: 100%;
@@ -72,14 +80,21 @@ getProject: function() {
     line-height: 2rem;
     color: #2b2b2b;
   }
+  &__image {
+    margin: 0 1rem;
+    img{
+    box-shadow: $global-box-shadow;}
+  }
 
   &__grid {
-    display: grid;
-    align-items: center;
-    grid-template-columns: 1fr 1fr;
-    grid-gap: 2rem;
-    padding: 2rem 0;
+    // display: grid;
+    // align-items: center;
+    // grid-template-columns: 1fr 1fr 1fr;
+    // grid-gap: 2rem;
+    // padding: 2rem 0;
     font-family: "Raleway", sans-serif;
+    display: flex;
+    width: 100%;
   }
 }
 </style>

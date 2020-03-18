@@ -2,8 +2,7 @@
   <div class="login">
       <h3>Login</h3>
       <form class="login__form" action="">
-          <input type="text" placeholder="Username">
-          <input type="text" placeholder="Password">
+          <input type="email" placeholder="Email">
       </form>
   </div>
 </template>

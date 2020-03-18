@@ -1,13 +1,9 @@
 <template>
   <div class="pagespeed">
-    <ProjectHeader />
+    <ProjectHeader :projectTitle="project.title" />
+    <div class="pagespeed__header">
       <div>
-        <h1 class="pagespeed__heading">Loom</h1>
         <span class="pagespeed__subheading">Page Speed Insights Results</span>
-      </div>
-      <div class="pagespeed__buttons">
-        <Btn class="pagespeed__viewdetails" text="view details" modifier="inverse" href />
-        <Btn class="pagespeed__visitwebsite" text="visit website" href />
       </div>
     </div>
 
@@ -63,7 +59,7 @@
 </template>
 
 <script>
-import { EventBus } from "../main";
+import ProjectHeader from "./headers/ProjectHeader";
 
 export default {
   name: "Pagespeed",
@@ -83,7 +79,6 @@ export default {
         .then(response => response.json())
         .then(json => {
           this.loading = false;
-          // console.log(this.loading);
           let rawScore = json.lighthouseResult.categories["performance"].score;
           let mainScore = (rawScore * 100).toFixed(0);
           this.pageStats = {
@@ -120,7 +115,7 @@ export default {
   padding: 2rem 6rem 4rem;
   height: 100vh;
   width: 78vw;
-  &__loading-container{
+  &__loading-container {
     background-color: transparent;
     display: flex;
     justify-content: center;
@@ -142,7 +137,7 @@ export default {
     justify-content: center;
     align-items: center;
   }
-  &__orbit{
+  &__orbit {
     position: relative;
     display: flex;
     justify-content: center;
@@ -150,7 +145,7 @@ export default {
     border: 1px solid #8f9690;
     border-radius: 50%;
   }
-  &__planet{
+  &__planet {
     position: absolute;
     top: -5px;
     width: 10px;
@@ -158,7 +153,7 @@ export default {
     border-radius: 50%;
     background-color: #fdd340;
   }
-  &__sun{
+  &__sun {
     position: relative;
     left: -98px;
     width: 35px;
@@ -274,18 +269,22 @@ export default {
     -webkit-animation: spin 12s linear 0s infinite;
   }
   .pagespeed__orbit--venus {
-	width: 120px;
-	height: 120px;
-  -webkit-animation: spin 7.4s linear 0s infinite;
+    width: 120px;
+    height: 120px;
+    -webkit-animation: spin 7.4s linear 0s infinite;
   }
   .pagespeed__orbit--mercury {
-	width: 90px;
-	height: 90px;
-  -webkit-animation: spin 3s linear 0s infinite;
+    width: 90px;
+    height: 90px;
+    -webkit-animation: spin 3s linear 0s infinite;
   }
   @keyframes spin {
-    from { transform: rotate(0); }
-    to{ transform: rotate(359deg);}
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(359deg);
+    }
   }
 }
 </style>

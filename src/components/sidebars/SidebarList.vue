@@ -9,7 +9,7 @@
         <h3>{{ user }}</h3>
       </div>
       <h6 class="profile__sub-heading">PROJECTS LIST</h6>
-      <router-link :to="{name: 'projectdetails'}" v-for="project in projects" :key="project.id">
+      <router-link :to="{name: 'projectdetails', params: { projectId: project.id }}" v-for="project in projects" :key="project.id">
         <img :src="project.desktopImageUrl" class="project__images" />
       </router-link>
     </div>
