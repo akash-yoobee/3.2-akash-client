@@ -1,17 +1,29 @@
 <template>
-  <div class="home" >
+  <div class="home">
     <router-link :to="{name: 'projects', params: { user: users[0].firstName }}">
-      <div class="home__card home__card--anton" :data-user="users[0].firstName" @click="currentUser">
+      <div
+        class="home__card home__card--anton"
+        :data-user="users[0].firstName"
+        @click="currentUser"
+      >
         <p class="home__label">{{ users[0].firstName }}</p>
       </div>
     </router-link>
     <router-link :to="{name: 'projects', params: { user: users[1].firstName }}">
-      <div class="home__card home__card--chris" :data-user="users[1].firstName" @click="currentUser">
+      <div
+        class="home__card home__card--chris"
+        :data-user="users[1].firstName"
+        @click="currentUser"
+      >
         <p class="home__label">{{ users[1].firstName }}</p>
       </div>
     </router-link>
     <router-link :to="{name: 'projects', params: { user: users[2].firstName }}">
-      <div class="home__card home__card--akash" :data-user="users[2].firstName" @click="currentUser">
+      <div
+        class="home__card home__card--akash"
+        :data-user="users[2].firstName"
+        @click="currentUser"
+      >
         <p class="home__label">{{ users[2].firstName }}</p>
       </div>
     </router-link>
@@ -39,11 +51,7 @@ export default {
         .catch(function(error) {
           console.log(error);
         });
-    },
-    say: function(message) {
-      console.log(message);
-    },
-    currentUser: function (event) {
+    currentUser: function(event) {
       let user = event.target.dataset.user
       EventBus.$emit("currentUser", user)
     }
